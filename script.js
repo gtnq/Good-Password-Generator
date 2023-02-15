@@ -6,15 +6,41 @@ let upper_letters = lower_letters.toUpperCase()
 let special = "!@#$%^&*()"
 
 function int_test(text){
-  let num;
-
-
-  return num;
+  let input = "please enter a number", num;
+  
+  while(true) {
+    num = prompt(text,input)
+    console.log(num)
+    num = parseInt(num)
+    if ( num )
+    
+      return num;
+    input = "Plase use a number"
+  }
 }
 
 function str_test(text){
-  let bool;
-  return bool
+  let note = "Yes or No only please", bool;
+  while (true) {
+    bool = prompt(text, note)
+    console.log(bool)
+    switch(bool) {
+      case "Yes":
+        return true;
+      case "yes":
+        return true;
+      case "YES":
+        return true;
+      case "NO":
+        return false;
+      case "no":
+        return false;
+      case "No":
+        return false; 
+    }
+    note = "Please use Yes or No"
+  }
+  
 }
 
 function prompt_question(text, valuetype) {
@@ -35,7 +61,7 @@ function generatePassword() {
   let max_length, min_length, lower, upper, num, spec;
   
   max_length = prompt_question("How long do you want your password?", "int")
-  min_length = prompt_question("How long do you want your password?", "int")
+  min_length = prompt_question("How short do you want your password?", "int")
   lower = prompt_question("Do you want to include lowercase letters?", "str")
   upper = prompt_question("Do you want to include uppercase letters?", "str")
   num = prompt_question("Do you want to include number?", "str")
@@ -45,7 +71,7 @@ function generatePassword() {
 
   console.log(len)
 
-  return "akfjashdflkasjdh"
+  return 
 }
 
 // Get references to the #generate element
