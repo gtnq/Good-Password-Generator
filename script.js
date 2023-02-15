@@ -1,9 +1,12 @@
 // Assignment code here
 
-let num = "0123456789"
+let numbers = "0123456789";
+let lower_letters = "abcdefghijklmnopqrstuvwxyz"
+let upper_letters = lower_letters.toUpperCase()
+let special = "!@#$%^&*()"
 
 function prompt_question(text, valuetype) {
-  let request 
+  let request;
   return request
 }
 
@@ -14,6 +17,12 @@ function generatePassword() {
   
   max_length = prompt_question("How long do you want your password?", "int")
   min_length = prompt_question("How long do you want your password?", "int")
+  lower = prompt_question("Do you want to include lowercase letters?", "str")
+  upper = prompt_question("Do you want to include uppercase letters?", "str")
+  num = prompt_question("Do you want to include number?", "str")
+  spec = prompt_question("Do you want to use special?", "str")
+
+  let len = Math.floor(Math.random()*(max_length - min_length)) + min_length
 
 
 
