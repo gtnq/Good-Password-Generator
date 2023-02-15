@@ -5,8 +5,27 @@ let lower_letters = "abcdefghijklmnopqrstuvwxyz"
 let upper_letters = lower_letters.toUpperCase()
 let special = "!@#$%^&*()"
 
+function int_test(text){
+  let num;
+
+
+  return num;
+}
+
+function str_test(text){
+  let bool;
+  return bool
+}
+
 function prompt_question(text, valuetype) {
   let request;
+  switch(valuetype) {
+    case "int":
+      request = int_test(text);
+      break;
+    case "str":
+      request = str_test(text);
+  }
   return request
 }
 
@@ -24,7 +43,7 @@ function generatePassword() {
 
   let len = Math.floor(Math.random()*(max_length - min_length)) + min_length
 
-
+  console.log(len)
 
   return "akfjashdflkasjdh"
 }
