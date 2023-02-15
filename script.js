@@ -4,18 +4,27 @@ let numbers = "0123456789";
 let lower_letters = "abcdefghijklmnopqrstuvwxyz"
 let upper_letters = lower_letters.toUpperCase()
 let special = "!@#$%^&*()"
+let higherend = 0;
 
 function int_test(text){
-  let input = "please enter a number", num;
+  let input = "please enter a number", num = 0;
   
   while(true) {
     num = prompt(text,input)
     console.log(num)
     num = parseInt(num)
-    if ( num )
     
-      return num;
-    input = "Plase use a number"
+    if ( num ) {
+      if (higherend == 0) {
+        higherend = num
+      }
+      if (num >= higherend || num <= 0) {
+        input = "please input a number than max length or a positive number"
+      } else 
+        return num;
+    } else {
+      input = "Plase use a positive number"
+    }
   }
 }
 
@@ -69,7 +78,7 @@ function generatePassword() {
 
   let len = Math.floor(Math.random()*(max_length - min_length)) + min_length
 
-  console.log(len)
+  console.log(len, "length of pw")
 
   return 
 }
