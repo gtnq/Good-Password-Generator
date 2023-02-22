@@ -14,12 +14,13 @@ function int_test(text){
     console.log(num)
     num = parseInt(num)
     
-    if ( num > 0 ) { // positive input
+    if ( num) { // positive input
       if (higherend == 0) {   //if upper limit not set, set up upper limit
         higherend = num
+        return higherend
       } else { //upper limit already set up
 
-        if (num >= higherend || num <= 0) {   //makesure upperlimit is larger than the new input
+        if (num >= higherend ) {   //makesure upperlimit is larger than the new input
           input = "please input a number than max length or a positive number"
         } else 
           return num;
@@ -69,7 +70,7 @@ function prompt_question(text, valuetype) {
 
 
 function generatePassword() {
-  let max_length, min_length, lower, upper, num, spec, data = "",output;
+  let max_length, min_length, lower, upper, num, spec, data = "",output = '';
   
   max_length = prompt_question("How long do you want your password?", "int")
   min_length = prompt_question("How short do you want your password?", "int")
@@ -88,7 +89,7 @@ function generatePassword() {
 
   console.log(len, "length of pw")
 
-  if (lower)
+  if (lower)                      //adding all the stuff for the customer needed
     data= data + lower_letters
   if (upper)
     data = data + upper_letters
@@ -98,12 +99,13 @@ function generatePassword() {
     data = data + special
 
   console.log(data,"added stuff")
-  let loc; //init of random location storing variable
-  for (let i = 0; i < len.length; i++) {
-    loc = Math.floor(Math.random()*(len.length))
+  let loc //init of random location storing variable
+  for (let i = 0; i < len; i++) {
+    loc = Math.floor(Math.random()*(data.length))
+    console.log('loc$(loc)')
     output += data[loc]     //loop for adding the random stuff from the data
   }
-
+  console.log("output", output)
   return output
 }
 
