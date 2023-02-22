@@ -14,14 +14,16 @@ function int_test(text){
     console.log(num)
     num = parseInt(num)
     
-    if ( num ) {
-      if (higherend == 0) {
+    if ( num > 0 ) { // positive input
+      if (higherend == 0) {   //if upper limit not set, set up upper limit
         higherend = num
+      } else { //upper limit already set up
+
+        if (num >= higherend || num <= 0) {   //makesure upperlimit is larger than the new input
+          input = "please input a number than max length or a positive number"
+        } else 
+          return num;
       }
-      if (num >= higherend || num <= 0) {
-        input = "please input a number than max length or a positive number"
-      } else 
-        return num;
     } else {
       input = "Plase use a positive number"
     }
@@ -67,20 +69,42 @@ function prompt_question(text, valuetype) {
 
 
 function generatePassword() {
-  let max_length, min_length, lower, upper, num, spec;
+  let max_length, min_length, lower, upper, num, spec, data = "",output;
   
   max_length = prompt_question("How long do you want your password?", "int")
   min_length = prompt_question("How short do you want your password?", "int")
-  lower = prompt_question("Do you want to include lowercase letters?", "str")
-  upper = prompt_question("Do you want to include uppercase letters?", "str")
-  num = prompt_question("Do you want to include number?", "str")
-  spec = prompt_question("Do you want to use special?", "str")
+  while (true) {
+    lower = prompt_question("Do you want to include lowercase letters?", "str")
+    upper = prompt_question("Do you want to include uppercase letters?", "str")
+    num = prompt_question("Do you want to include number?", "str")
+    spec = prompt_question("Do you want to use special?", "str")
+    if (lower || upper || num || spec) {
+      break;
+    } else
+      alert("Please say yes for at least one option ")
+  }
 
   let len = Math.floor(Math.random()*(max_length - min_length)) + min_length
 
   console.log(len, "length of pw")
 
-  return 
+  if (lower)
+    data= data + lower_letters
+  if (upper)
+    data = data + upper_letters
+  if (num)
+    data = data + numbers
+  if (spec)
+    data = data + special
+
+  console.log(data,"added stuff")
+  let loc; //init of random location storing variable
+  for (let i = 0; i < len.length; i++) {
+    loc = Math.floor(Math.random()*(len.length))
+    output += data[loc]     //loop for adding the random stuff from the data
+  }
+
+  return output
 }
 
 // Get references to the #generate element
