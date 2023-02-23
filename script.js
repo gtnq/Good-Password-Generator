@@ -106,6 +106,7 @@ function generatePassword() {
     output += data[loc]     //loop for adding the random stuff from the data
   }
   console.log("output", output)
+  higherend = 0 //reset max number
   return output
 }
 
